@@ -1,0 +1,12 @@
+{
+    "name": "ivan-santobuono/mongo-db-test",
+    "authors": [
+        {
+            "name": "santobuonoivan",
+            "email": "mecaluxivansantobuono@gmail.com"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^1.4"
+    }
+}
