@@ -1,9 +1,9 @@
 <?php
+require_once "./vendor/autoload.php";
+require './BaseMongoDB.php';
 
-require './BaseDeDatos.php';
 
-
-$db = new BaseMongoDB;
+$db = new BaseMongoDB('cola','items');
 
 $db->insert(1,'ivan');
 $db->insert(2,'ivan');
@@ -15,14 +15,15 @@ $db->insert(8,'matias');
 $db->insert(4,'chachara');
 $db->insert(3,'dario');
 
-$db->update(1,'mauro');
+$db->update(3,'mauro');
 
+$db->drop();
 //$db->get(11);
 
+
+$db->update(5,'seba');
+
 $db->delete(8);
-
-$db->update(3,'seba');
-
 
 
 
