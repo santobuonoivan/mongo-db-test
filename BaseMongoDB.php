@@ -17,17 +17,21 @@ class BaseMongoDB
 		$this->collection = $this->db->{$collection};
 	}
 	
-	public function get( $id ){
-		$result = $this->collection->find( [ 'value' => $id ] );
-		return $result;
+	public function get( $clave, $valor ){
+		$result = $this->collection->find( [ $clave => $valor ] );
 		$response = [];
+		
+		if( $result->isDead() ){
+			return $response;
+		}
+		
 		foreach ($result as  $value) {
 			$response[] = (array) $value;
 		}
 		return $response;
 	}
 	
-	public function insert( $id, $valor){
+	public function insert( $id, $valor) : bool{
 		if( !$this->collection->findOne( [ 'id' => $id ] ) )
 		{
 			$result = $this->collection->insertOne( [ 'id' => $id, 'value' => $valor ] );

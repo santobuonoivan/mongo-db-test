@@ -23,16 +23,28 @@
 
         public function testPush()
         {
-            array_push($this->stack, 'foo');
-            $this->assertEquals('foo', $this->stack[count($this->stack)-1]);
-            $this->assertFalse(empty($this->stack));
+            $this->assertEquals(true,$this->db->insert(1,'ivan') );
+            $this->assertFalse( $this->db->insert(1,'ivan') );
+        }
+        
+        public function testPop()
+        {   $this->db->insert( 1 ,'ivan' );
+            $this->assertIsArray( $this->db->get('id', 1) );
         }
 
-        public function testPop()
-        {
-            array_push($this->stack, 'foo');
-            $this->assertEquals('foo', array_pop($this->stack));
-            $this->assertTrue(empty($this->stack));
+        public function testCountPop()
+        {   $this->db->insert( 1 ,'ivan' );
+            $this->db->insert( 2 ,'ivan' );
+            $this->db->insert( 3 ,'ivan' );
+            $this->db->insert( 4 ,'ivan' );
+            $this->assertEquals( 4, count( $this->db->get( 'value', 'ivan' ) ) );
+        }
+
+        public function testCountNullPop()
+        {   
+            $this->db->insert( 1 ,'ivan' );
+
+            $this->assertEquals( 0, count( $this->db->get( 'value', 'pepe' ) ) );
         }
         
     }

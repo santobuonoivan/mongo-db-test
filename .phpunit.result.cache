@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":298:{a:2:{s:7:"defects";a:3:{s:18:"EmailTest::testPop";i:4;s:23:"EmailTest::testCountPop";i:4;s:27:"EmailTest::testCountNullPop";i:4;}s:5:"times";a:4:{s:19:"EmailTest::testPush";d:0.038;s:18:"EmailTest::testPop";d:0.029;s:23:"EmailTest::testCountPop";d:0.04;s:27:"EmailTest::testCountNullPop";d:0.036;}}}
